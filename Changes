@@ -1,5 +1,9 @@
 Revision history for Perl extension Mac::Errors.
 
+1.10 - Fri Mar 11 22:58:40 2005
+	* added POD coverage tests, fixed issues
+	* no code changes: no need to upgrade
+
 1.00 - Thu Sep  2 19:28:02 2004
 * fixed RT bug 3660: errors without a description return its symbol
 instead.
