@@ -1,8 +1,23 @@
 # $Id$
 use strict;
 
-use Test::More tests => 1;
+use Test::More tests => 6;
 
-use Mac::Errors qw(%MacErrors);
+BEGIN {
+    use_ok( 'Mac::Errors', qw( $MacError %MacErrors fnfErr ) );
+}
 
 my $count = keys %MacErrors;
+ok( $count > 0, 'There are at least some errors' );
+
+
+
+my $err = -43;
+$! = $err;
+
+my $error = $MacErrors{$err};
+
+cmp_ok( $error->number, '==', $err );
+cmp_ok( $error->number, '==', fnfErr() );
+is( $error->description, $MacError );
+is( $error->symbol, "fnfErr" );
