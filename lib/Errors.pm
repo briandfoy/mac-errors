@@ -86,9 +86,9 @@ sub TIESCALAR
 
 sub FETCH
 	{
-	my $errno = $^E+0;
-	return $^E=$errno unless exists $MacErrors{ $errno };
-	return $MacErrors{ $errno }->description || $MacErrors{ $errno }->symbol;
+	my $errno = $^E + 0;
+	return $errno unless exists $MacErrors{ $errno };
+	return $MacErrors{ $errno }->description;
 	}
 
 constants();
@@ -97,11 +97,12 @@ sub constants
 	{
 	seek DATA, 0, 0; # this reads the entire script
 	my $data = do { local $/; <DATA> };
-	while( $data =~ m|=item (\w+)\s+([^\n]+)\n\s+=cut\s+sub \1 { (-?\d+) }|g ) 
+	while( $data =~ m|=item (\w+)(?:\s+([^\n]+))?\n\s+?=cut\s+sub \1 { (-?\d+) }|g ) 
 		{
 		my( $symbol, $desc, $value ) = ( $1, $2, $3 );
 		push @EXPORT_OK, $symbol;
 		
+		$desc  ||= $symbol;
 		my $array = [ $symbol, $value, $desc ];
 		
 		bless $array, __PACKAGE__;
@@ -14189,18 +14190,18 @@ sub dsBadLibrary { 1010 }
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	https://sourceforge.net/projects/brian-d-foy/
+	http://sourceforge.net/projects/brian-d-foy/
 	
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 
-brian d foy, E<lt>bdfoy.orgE<gt>
+brian d foy, C<< <bdfoy.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002, brian d foy, All rights reserved
+Copyright 2002-2004, brian d foy, All rights reserved
 
 You can use this module under the same terms as Perl itself.
 
