@@ -1,5 +1,8 @@
 Revision history for Perl extension Mac::Errors.
 
+0.91	
+	- Fixed export of $MacError
+
 0.9	Mon Nov  4 21:13:49 CST 2002
 	- cleaned up distribution
 	- added macerror script from Chris Nandor
