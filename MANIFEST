@@ -1,0 +1,8 @@
+Changes
+lib/Errors.pm
+Makefile.PL
+MANIFEST
+t/load.t
+t/pod.t
+t/errors.t
+t/test_manifest
