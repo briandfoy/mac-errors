@@ -1,15 +1,5 @@
-# $Id$
-
-BEGIN {
-    @files = qw( lib/Mac/Errors.pm script/macerror );
-}
-
-use Test::More tests => scalar @files;
-
-
-SKIP: {
-    eval "use Test::Pod;";
-    skip "Test::Pod not installed", scalar @files if $@;
-    pod_file_ok("blib/$_") for @files;
-}
-
+#$Id$
+use Test::More;
+eval "use Test::Pod 1.00";
+plan skip_all => "Test::Pod 1.00 required for testing POD" if $@;
+all_pod_files_ok();
