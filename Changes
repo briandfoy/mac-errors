@@ -1,5 +1,10 @@
 Revision history for Perl extension Mac::Errors.
 
+1.00 - Thu Sep  2 19:28:02 2004
+* fixed RT bug 3660: errors without a description return its symbol
+instead.
+* some distro clean-ups
+
 0.91	Thu Mar 20 09:16:30 2003 (Andy Lester)
 	- Dropped dependencies on many modules
 	- Fixed export of $MacError (Thanks, Chris)
