@@ -9,4 +9,3 @@ t/load.t
 t/object.t
 t/pod.t
 t/prereq.t
-t/test_manifest

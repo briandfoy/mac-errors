@@ -1,5 +1,0 @@
-load.t
-pod.t
-prereq.t
-errors.t
-object.t
