@@ -19,4 +19,5 @@ WriteMakefile(
 
     depend => { Makefile => 't/test_manifest' },
     test   => { TESTS => $tests },
+    clean  => { FILES => 'Mac-Errors-*' },
 );
