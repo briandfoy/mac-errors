@@ -2,8 +2,10 @@
 package Mac::Errors;
 use strict;
 
-use base qw(Exporter);
-use vars qw(@EXPORT_OK %MacErrors);
+use base qw(Exporter Tie::Scalar);
+use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
+
+$VERSION = '0.7';
 
 use Exporter;
 
@@ -28,11 +30,20 @@ my $symbol = $error->symbol;
 my $number = $error->number;
 my $desc   = $error->description; 
 
+# in MacPerl, $^E is meaningful, and we tie $MacError to it
+use Mac::Errors qw( $MacError );
+
+open FILE, $foo or die $^E;       # error number
+open FILE, $foo or die $MacError; # gets description from $^E
+
 =head1 DESCRIPTION
 
 The %MacErrors hash indexes error information by the error
 number or symbol.  Each value is a Mac::Errors object which
 has the symbol, number, and description.
+
+The $MacError scalar performs some tied magic to translate
+MacPerl's $^E to the error text.
 
 =head1 METHODS
 
@@ -64,6 +75,21 @@ The subroutine returns the error number.
 =cut
 
 @EXPORT_OK = qw(%MacErrors);
+
+tie $MacError, __PACKAGE__;
+
+sub TIESCALAR 
+	{
+	my( $scalar, $class ) = @_;
+	return bless \$scalar, __PACKAGE__;
+	}
+
+sub FETCH 
+	{
+	return $^E unless exists $MacErrors{ $^E + 0 };
+	return $MacErrors{ $^E + 0 }->description;
+	}
+
 constants();
 
 sub constants 
