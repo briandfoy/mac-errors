@@ -1,0 +1,11 @@
+Mac-Errors-*
+CVS
+blib
+.cvsignore
+.lwpcookies
+.releaserc
+Errors.pl
+MANIFEST.SKIP
+Makefile$
+Makefile.old
+MANIFEST.bak
