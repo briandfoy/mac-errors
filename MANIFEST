@@ -1,8 +1,11 @@
 Changes
-lib/Errors.pm
-Makefile.PL
 MANIFEST
-t/load.t
-t/pod.t
+Makefile.PL
+lib/Errors.pm
 t/errors.t
+t/import.t
+t/load.t
+t/object.t
+t/pod.t
+t/prereq.t
 t/test_manifest
