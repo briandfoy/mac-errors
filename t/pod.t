@@ -1,14 +1,11 @@
 # $Id$
-BEGIN {
-	use File::Find::Rule;
-	@files = File::Find::Rule->file()->name( '*.pm' )->in( 'blib/lib' );
-	}
 
-use Test::More tests => scalar @files;
-use Test::Pod;
+use Test::More tests => 1;
 
-foreach my $file ( @files )
-	{
-	pod_ok( $file );
-	}
+
+SKIP: {
+    eval "use Test::Pod;";
+    skip "Test::Pod not installed", 1 if $@;
+    pod_file_ok('blib/lib/Mac/Errors.pm');
+}
 
