@@ -84,10 +84,11 @@ sub TIESCALAR
 	return bless \$scalar, __PACKAGE__;
 	}
 
-sub FETCH 
+sub FETCH
 	{
-	return $^E unless exists $MacErrors{ $^E + 0 };
-	return $MacErrors{ $^E + 0 }->description;
+	my $errno = $^E+0;
+	return $^E=$errno unless exists $MacErrors{ $errno };
+	return $MacErrors{ $errno }->description || $MacErrors{ $errno }->symbol;
 	}
 
 constants();
