@@ -1,3 +1,6 @@
 Mac-Errors-*
 .DS_Store
 .lwpcookies
+pm_to_blib
+blib
+Makefile
