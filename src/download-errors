@@ -1,0 +1,108 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+BEGIN
+{
+    require HTTP::Request::Common;
+    require LWP::UserAgent;
+}
+
+sub clean_text($$)
+{
+    my ($text, $type) = @_;
+    $text =~ s/[\012\015]/ /g;
+    $text =~ s/<[bi]>//gi;
+    $text =~ s/<\/[abip]>//gi;
+    $text =~ s/<\/?(?:tt|code|span)>//gi;
+    $text =~ s/<!--.*?-->//g;
+    $text =~ s/<a href=\"[^\"]+\"(?: target="_top")?>//gi;
+    $text =~ s/<a name="\/\/[^\"]+">//i;
+    $text =~ s/<span class="[^\"]+">//gi;
+    $text =~ s/&nbsp;/ /g;
+    $text =~ s/^\s*(.*)\s*$/$1/;
+    while ($text =~ /  /)
+    {
+	$text =~ s/  / /g;
+    }
+    $text =~ s/&\#8211;/-/g;
+    $text =~ s/&\#8211;/-/g;
+    $text =~ s/&\#8212;/--/g;
+    $text =~ s/&\#8217;/\'/g;
+    $text =~ s/&\#8220;/\"/g;
+    $text =~ s/&\#8221;/\"/g;
+    $text =~ s/&quot;/\"/g;
+    $text =~ s/&gt;/>/g;
+    die("unprocessed $type tag: $text") if ($text =~ /</);
+    $text =~ s/&lt;/</g;
+    die("unknown $type escape: $text") if ($text =~ /&/);
+    $text =~ s/&amp;/&/g;
+    return $text;
+}
+
+my $source_list = $ARGV[0];
+
+open(SOURCES,"<$source_list") ||
+    die("unable to open $source_list for reading");
+
+while(<SOURCES>)
+{
+    s/[\012\015]*$//;
+    my $source = $_;
+
+    print STDERR "$source\n";
+    my $result = LWP::UserAgent->new()->
+	request(HTTP::Request::Common::GET $source)->content();;
+
+    if ($result =~ /Page Not Found/i)
+    {
+	print STDERR "  Page not found\n";
+	next;
+    }
+
+    my ($section_title) = ($result =~ /^.*?<h1>(.*?)<\/h1>/msi);
+    $section_title = clean_text($section_title,'section title');
+
+    my ($section_desc) = ($result =~ /<\/h1>.*?<p>(.*?)<\/p>/msi);
+    $section_desc = clean_text($section_desc,'section description');
+
+    $result =~ s/^.*<\/h1>.*?<table .*?>.*?<\/tr>//msi;
+    $result =~ s/<!-- START FOOTER.*$//ms;
+    $result =~ s/<\/table>.*$//msi;
+
+    print STDERR "  $section_title\n";
+    print "$section_title\n";
+    print "  $source\n";
+    print "  $section_desc\n";
+
+    foreach my $bit (split(/<tr>/i,$result))
+    {
+        next if ($bit =~ /^\s+$/);
+        my @parts = split(/<td /i,$bit);
+        grep(s/[\012\015]+/ /g,@parts);
+
+        if (!defined($parts[1]))
+        {
+	    die("\n\nUNABLE TO PARSE\n\n\n $bit");
+        }
+
+	$parts[1] =~ s/^.*<code[^>]*>(.*)<\/code>.*$/$1/msi;
+	my $symbol = clean_text($parts[1],'symbol');
+
+        $parts[2] =~ s/^[^>]*> *//;
+        $parts[2] =~ s/<\/td>.*$//i;
+	$parts[2] =~ s/\s*\(.*\)\s*$//;
+	my $code = clean_text($parts[2],'code');
+        $code =~ s/^-//;
+
+        $parts[3] =~ s/<\/td>.*$//;
+        $parts[3] =~ s/^.*content_text\">//;
+        $parts[3] =~ s/<a logicalPath[^>]+>//g;
+	my @descs = map(clean_text($_,'description'),
+			split(/<p>/,$parts[3]));
+
+	print "    $symbol $code\n".join('',map("      $_\n",@descs));
+    }
+}
+close(SOURCES);

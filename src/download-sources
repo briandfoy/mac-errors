@@ -1,0 +1,37 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+BEGIN
+{
+    require SOAP::Lite;
+}
+
+my $output_file = $ARGV[0];
+my $google = SOAP::Lite->service('http://api.google.com/GoogleSearch.wsdl');
+my $key = 'dbzxmZRQFHKVBsi/2OUdfdA5J/YhPx1v';
+my $query = 'site:developer.apple.com intitle:"Result Codes"';
+my %urls = ();
+my $end_index = 0;
+my $per_query = 10;
+for (my $offset = $end_index, my $page = 1; 
+     $offset == $end_index; 
+     $offset += $per_query, ++$page)
+{
+    print STDERR "Google search page $page...\n";
+    my $result = $google->doGoogleSearch
+	($key,$query,$offset,$per_query,
+	 SOAP::Data->type(boolean => 'false'),'',
+	 SOAP::Data->type(boolean => 'false'),'',
+	 'latin1','latin1');
+    $end_index = $result->{endIndex};
+    foreach my $entry (@{$result->{resultElements}})
+    {
+	my $url = $entry->{URL};
+	next if ($url !~ /section_1.html$/ ||
+		 exists($urls{$url}));
+	$urls{$url} = 1;
+	print "$url\n";
+    }
+}
