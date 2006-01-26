@@ -80,8 +80,8 @@ tie $MacError, __PACKAGE__;
 
 sub TIESCALAR 
 	{
-	my( $scalar, $class ) = @_;
-	return bless \$scalar, __PACKAGE__;
+	my( $class, $scalar ) = @_;
+	return bless \$scalar, $class;
 	}
 
 sub FETCH
