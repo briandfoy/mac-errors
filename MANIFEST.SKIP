@@ -9,3 +9,5 @@ MANIFEST.SKIP
 Makefile$
 Makefile.old
 MANIFEST.bak
+\.DS_Store
+\.bak
