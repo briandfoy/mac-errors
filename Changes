@@ -1,5 +1,8 @@
 Revision history for Perl extension Mac::Errors.
 
+1.12 - Thu Jun  8 07:17:51 2006
+	* Distro fixes, include support scripts with distro (src/)
+
 1.11 - Wed Jan 25 19:31:47 2006
 	* Fixed a bug in the argument list in TIESCALAR for $MacError
 	* If you're using MacPerl, you probably want to upgrade
