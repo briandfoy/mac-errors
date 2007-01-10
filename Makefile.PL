@@ -6,6 +6,7 @@ eval "use Test::Manifest 1.14";
 WriteMakefile(
 	'NAME'              => 'Mac::Errors',
 	'VERSION_FROM'      => 'lib/Errors.pm',
+	'LICENSE'			=> 'perl',
 	'PM'                => { 'lib/Errors.pm' => '$(INST_LIBDIR)/Errors.pm' },
 	'PREREQ_PM'         => {
 		'Test::More'  => '0',
