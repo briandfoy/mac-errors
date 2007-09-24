@@ -4,9 +4,12 @@ use ExtUtils::MakeMaker;
 eval "use Test::Manifest 1.14";
 
 WriteMakefile(
-	'NAME'              => 'Mac::Errors',
-	'VERSION_FROM'      => 'lib/Errors.pm',
-	'LICENSE'			=> 'perl',
+	'NAME'         => 'Mac::Errors',
+	'VERSION_FROM' => 'lib/Errors.pm',
+	'LICENSE'      => 'perl',
+	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
+	
+
 	'PM'                => { 'lib/Errors.pm' => '$(INST_LIBDIR)/Errors.pm' },
 	'PREREQ_PM'         => {
 		'Test::More'  => '0',
