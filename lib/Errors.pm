@@ -2,10 +2,13 @@
 package Mac::Errors;
 use strict;
 
+use warnings;
+no warnings;
+
 use base qw(Exporter Tie::Scalar);
 use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = 1.14;
 
 use Exporter;
 
@@ -15,35 +18,35 @@ Mac::Errors - constants for Mac error codes
 
 =head1 SYNOPSIS
 
-use Mac::Errors qw(openErr);
-
-if( $value == openErr )
-	{
-	...
-	}
-
-my $error = $MacErrors{ $symbol };
-# -- OR --
-my $error = $MacErrors{ $number };
-
-my $symbol = $error->symbol;
-my $number = $error->number;
-my $desc   = $error->description; 
-
-# in MacPerl, $^E is meaningful, and we tie $MacError to it
-use Mac::Errors qw( $MacError );
-
-open FILE, $foo or die $^E;       # error number
-open FILE, $foo or die $MacError; # gets description from $^E
+	use Mac::Errors qw(openErr);
+	
+	if( $value == openErr )
+		{
+		...
+		}
+	
+	my $error = $MacErrors{ $symbol };
+	# -- OR --
+	my $error = $MacErrors{ $number };
+	
+	my $symbol = $error->symbol;
+	my $number = $error->number;
+	my $desc   = $error->description; 
+	
+	# in MacPerl, $^E is meaningful, and we tie $MacError to it
+	use Mac::Errors qw( $MacError );
+	
+	open FILE, $foo or die $^E;       # error number
+	open FILE, $foo or die $MacError; # gets description from $^E
 
 =head1 DESCRIPTION
 
-The %MacErrors hash indexes error information by the error
-number or symbol.  Each value is a Mac::Errors object which
+The C<%MacErrors> hash indexes error information by the error
+number or symbol.  Each value is a C<Mac::Errors> object which
 has the symbol, number, and description.
 
-The $MacError scalar performs some tied magic to translate
-MacPerl's $^E to the error text.
+The C<$MacError> scalar performs some tied magic to translate
+MacPerl's C<$^E> to the error text.
 
 =head1 METHODS
 

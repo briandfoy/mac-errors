@@ -7,8 +7,7 @@ eval "use Test::Manifest 1.14";
 
 WriteMakefile(
 	'NAME'         => 'Mac::Errors',
-	'ABSTRACT'     => 'constants for Mac error codes';
-
+	'ABSTRACT'     => 'constants for Mac error codes',
 	'VERSION_FROM' => 'lib/Errors.pm',
 	'LICENSE'      => 'perl',
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
@@ -27,4 +26,4 @@ WriteMakefile(
 		},
 
 	clean               => { FILES => 'Mac-Errors-*' },
-);
+	);
