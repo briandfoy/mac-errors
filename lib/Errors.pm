@@ -1,4 +1,3 @@
-# $Id$
 package Mac::Errors;
 use strict;
 
@@ -11,6 +10,8 @@ use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 $VERSION = 1.14;
 
 use Exporter;
+
+=encoding utf8
 
 =head1 NAME
 
@@ -2773,7 +2774,7 @@ sub notLockedErr { -623 }
 
 =item interruptsMaskedErr
 
- donÍt call with interrupts masked
+ don't call with interrupts masked
 
 =cut
 
@@ -4996,7 +4997,7 @@ sub noMoreKeyColorsErr { -2205 }
 
 =item notExactSizeErr
 
- CanÍt do exact size requested
+ CanÃ•t do exact size requested
 
 =cut
 
@@ -5004,7 +5005,7 @@ sub notExactSizeErr { -2206 }
 
 =item badDepthErr
 
- CanÍt digitize into this depth
+ CanÃ•t digitize into this depth
 
 =cut
 
@@ -5012,7 +5013,7 @@ sub badDepthErr { -2207 }
 
 =item noDMAErr
 
- CanÍt do DMA digitizing (i.e. can't go to requested dest
+ CanÃ•t do DMA digitizing (i.e. can't go to requested dest
 
 =cut
 
@@ -5234,7 +5235,7 @@ sub tsmNoOpenTSErr { -2508 }
 
 =item tsmCantOpenComponentErr
 
- canÍt open the component
+ canÃ•t open the component
 
 =cut
 
@@ -7000,7 +7001,7 @@ sub kEHOSTUNREACHErr { -3264 }
 
 =item kEPROTOErr
 
- ´´´ fill out missing codes ´´´
+ Â¥Â¥Â¥ fill out missing codes Â¥Â¥Â¥
 
 =cut
 
@@ -8519,7 +8520,7 @@ sub errUnsupportedWindowAttributesForClass { -5601 }
 
 =item errWindowDoesNotHaveProxy
 
- tried to do something requiring a proxy to a window which doesnÍt have a proxy
+ tried to do something requiring a proxy to a window which doesnÃ•t have a proxy
 
 =cut
 
@@ -8748,7 +8749,7 @@ sub kDMMirroringBlocked { -6223 }
 
 =item kDMCantBlock
 
- Mirroring is already on, canÍt Block now (call DMUnMirror() first).
+ Mirroring is already on, canÃ•t Block now (call DMUnMirror() first).
 
 =cut
 
@@ -11610,7 +11611,7 @@ sub telUnknownErr { -10103 }
 
 =item telNoCommFolder
 
- Communications/Extensions € not found
+ Communications/Extensions Ã„ not found
 
 =cut
 
@@ -13715,7 +13716,7 @@ sub dsBadSANEOpcode { 81 }
 
 =item dsBadPatchHeader
 
- SetTrapAddress saw the ñcome-fromî header
+ SetTrapAddress saw the Ã’come-fromÃ“ header
 
 =cut
 
@@ -13763,7 +13764,7 @@ sub dsCDEFNotFound { 88 }
 
 =item dsNoFPU
 
- an FPU instruction was executed and the machine doesnÍt have one
+ an FPU instruction was executed and the machine doesnÃ•t have one
 
 =cut
 
@@ -14051,7 +14052,7 @@ sub dsNoExtsDisassembler { -2 }
 
 =item dsMacsBugInstalled
 
- say ñMacsBug Installedî
+ say Ã’MacsBug InstalledÃ“
 
 =cut
 
@@ -14059,7 +14060,7 @@ sub dsMacsBugInstalled { -10 }
 
 =item dsDisassemblerInstalled
 
- say ñDisassembler Installedî
+ say Ã’Disassembler InstalledÃ“
 
 =cut
 
@@ -14067,7 +14068,7 @@ sub dsDisassemblerInstalled { -11 }
 
 =item dsExtensionsDisabled
 
- say ñExtensions Disabledî
+ say Ã’Extensions DisabledÃ“
 
 =cut
 
@@ -14084,7 +14085,7 @@ sub dsGreeting { 40 }
 =item dsSysErr
 
  general system error
-old names here for compatibilityÍs sake
+old names here for compatibilityÃ•s sake
 
 =cut
 
@@ -14114,7 +14115,7 @@ sub dsBadStartupDisk { 42 }
 
 =item dsSystemFileErr
 
- canÍt find System file to open (sad Mac only)
+ canÃ•t find System file to open (sad Mac only)
 
 =cut
 
@@ -14122,7 +14123,7 @@ sub dsSystemFileErr { 43 }
 
 =item dsHD20Installed
 
- say ñHD20 Startupî
+ say Ã’HD20 StartupÃ“
 
 =cut
 
