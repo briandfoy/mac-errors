@@ -2,6 +2,8 @@
 use strict;
 use Mac::Errors;
 
+=encoding utf8
+
 =head1 NAME
 
 macerror
