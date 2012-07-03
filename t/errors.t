@@ -1,5 +1,3 @@
-# $Id$
-
 use Test::More tests => 25;
 use Mac::Errors qw(%MacErrors);
 
