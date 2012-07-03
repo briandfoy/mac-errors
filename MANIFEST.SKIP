@@ -11,3 +11,4 @@ Makefile.old
 MANIFEST.bak
 \.DS_Store
 \.bak
+\.git
