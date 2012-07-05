@@ -4997,7 +4997,7 @@ sub noMoreKeyColorsErr { -2205 }
 
 =item notExactSizeErr
 
- CanÕt do exact size requested
+ Can't do exact size requested
 
 =cut
 
@@ -5005,7 +5005,7 @@ sub notExactSizeErr { -2206 }
 
 =item badDepthErr
 
- CanÕt digitize into this depth
+ Can't digitize into this depth
 
 =cut
 
@@ -5013,7 +5013,7 @@ sub badDepthErr { -2207 }
 
 =item noDMAErr
 
- CanÕt do DMA digitizing (i.e. can't go to requested dest
+ Can't do DMA digitizing (i.e. can't go to requested dest
 
 =cut
 
@@ -5235,7 +5235,7 @@ sub tsmNoOpenTSErr { -2508 }
 
 =item tsmCantOpenComponentErr
 
- canÕt open the component
+ can't open the component
 
 =cut
 
@@ -7001,7 +7001,7 @@ sub kEHOSTUNREACHErr { -3264 }
 
 =item kEPROTOErr
 
- ¥¥¥ fill out missing codes ¥¥¥
+ ''' fill out missing codes '''
 
 =cut
 
@@ -8520,7 +8520,7 @@ sub errUnsupportedWindowAttributesForClass { -5601 }
 
 =item errWindowDoesNotHaveProxy
 
- tried to do something requiring a proxy to a window which doesnÕt have a proxy
+ tried to do something requiring a proxy to a window which doesn't have a proxy
 
 =cut
 
@@ -8749,7 +8749,7 @@ sub kDMMirroringBlocked { -6223 }
 
 =item kDMCantBlock
 
- Mirroring is already on, canÕt Block now (call DMUnMirror() first).
+ Mirroring is already on, can't Block now (call DMUnMirror() first).
 
 =cut
 
@@ -13716,7 +13716,7 @@ sub dsBadSANEOpcode { 81 }
 
 =item dsBadPatchHeader
 
- SetTrapAddress saw the Òcome-fromÓ header
+ SetTrapAddress saw the 'come-from' header
 
 =cut
 
@@ -13764,7 +13764,7 @@ sub dsCDEFNotFound { 88 }
 
 =item dsNoFPU
 
- an FPU instruction was executed and the machine doesnÕt have one
+ an FPU instruction was executed and the machine doesn't have one
 
 =cut
 
@@ -14052,7 +14052,7 @@ sub dsNoExtsDisassembler { -2 }
 
 =item dsMacsBugInstalled
 
- say ÒMacsBug InstalledÓ
+ say 'MacsBug Installed'
 
 =cut
 
@@ -14060,7 +14060,7 @@ sub dsMacsBugInstalled { -10 }
 
 =item dsDisassemblerInstalled
 
- say ÒDisassembler InstalledÓ
+ say 'Disassembler Installed'
 
 =cut
 
@@ -14068,7 +14068,7 @@ sub dsDisassemblerInstalled { -11 }
 
 =item dsExtensionsDisabled
 
- say ÒExtensions DisabledÓ
+ say 'Extensions Disabled'
 
 =cut
 
@@ -14085,7 +14085,7 @@ sub dsGreeting { 40 }
 =item dsSysErr
 
  general system error
-old names here for compatibilityÕs sake
+old names here for compatibility's sake
 
 =cut
 
@@ -14115,7 +14115,7 @@ sub dsBadStartupDisk { 42 }
 
 =item dsSystemFileErr
 
- canÕt find System file to open (sad Mac only)
+ can't find System file to open (sad Mac only)
 
 =cut
 
@@ -14123,7 +14123,7 @@ sub dsSystemFileErr { 43 }
 
 =item dsHD20Installed
 
- say ÒHD20 StartupÓ
+ say 'HD20 Startup'
 
 =cut
 
