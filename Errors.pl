@@ -1,9 +1,13 @@
 #!/usr/bin/perl
 
+use v5.10;
+
+use utf8;
+
 $DEBUG = 0;
 
-open FILE, "> lib/Errors.pm";
-
+open FILE, ">:utf8",  "lib/Mac/Errors.pm" or
+	die "Could not open file: $!\n";
 select FILE;
 
 print <<'HERE';
@@ -11,6 +15,10 @@ package Mac::Errors;
 use strict;
 
 use vars qw(@EXPORT_OK);
+
+use utf8;
+
+=encoding utf8
 
 =head1 NAME
 
@@ -37,11 +45,10 @@ This is the description
 
 HERE
 
-while( <DATA> )
-	{
+binmode DATA, ":utf8";
+while( <DATA> ) {
 	print STDERR "Data is $_" if $DEBUG;
-	if( /^\s*enum\s*{\s*$/ )
-		{
+	if( /^\s*enum\s*{\s*$/ ) {
 		print STDERR "Match opening enum\n" if $DEBUG;
 		$_ = <DATA>;
 		if( m|^\s+/\*\s*(.*?)\s*\*/| ) { print "=back\n\n=head1 $1\n\n=over 4\n\n"; }
