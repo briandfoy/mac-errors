@@ -8,7 +8,6 @@ MANIFEST			This list of files
 MYMETA.json
 MYMETA.yml
 README
-src/Errors.pl
 src/combine-errors
 src/depodify-errors
 src/download-errors
