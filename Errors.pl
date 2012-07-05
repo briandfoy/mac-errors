@@ -106,7 +106,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002, brian d foy, All rights reserved
+Copyright 2002-2012, brian d foy, All rights reserved
 
 You can use this module under the same terms as Perl itself.
 
