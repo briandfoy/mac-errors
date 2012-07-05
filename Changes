@@ -1,5 +1,10 @@
 Revision history for Perl extension Mac::Errors.
 
+1.16 - Thu Jul  5 17:04:10 2012
+	* Clean up the file and pod encodings from src/Errors.pl
+	which generates the module
+	* Add Errors.pl to the distro
+
 1.15 - Tue Jul  3 15:53:00 2012
 	* Fix Pod encoding issue for Test::Pod
 
