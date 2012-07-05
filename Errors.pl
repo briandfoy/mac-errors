@@ -28,8 +28,7 @@ Mac::Errors - constants for Mac error codes
 
 use Mac::Errors qw(openErr);
 
-if( $value == openErr )
-	{
+if( $value == openErr ) {
 	...
 	}
 
@@ -54,13 +53,11 @@ while( <DATA> ) {
 		if( m|^\s+/\*\s*(.*?)\s*\*/| ) { print "=back\n\n=head1 $1\n\n=over 4\n\n"; }
 		else { redo; }
 		}
-	elsif( /^\s*};/ )
-		{
+	elsif( /^\s*};/ ) {
 		print STDERR "Match closing enum\n" if $DEBUG;
 		last if $DEBUG;
 		}
-	elsif( m|^\s*(\w+)\s+=\s+(-?\w+?)L?,(?:\s*/\*\s*(.*?)\s*\*/)?| )
-		{
+	elsif( m|^\s*(\w+)\s+=\s+(-?\w+?)L?,(?:\s*/\*\s*(.*?)\s*\*/)?| ) {
 		print STDERR "Match value\n" if $DEBUG;
 		my( $sub, $value, $desc ) = ( $1, $2, $3 );
 		push @values, $sub;
@@ -86,8 +83,7 @@ while( @values )
 	}
 print ");\n\n";
 	
-sub print_val
-	{
+sub print_val {
 	my( $sub, $value, $desc ) = @_;
 	
 	$desc = " $desc\n\n" if $desc ne '';
