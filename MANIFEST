@@ -13,6 +13,7 @@ src/depodify-errors
 src/download-errors
 src/download-sources
 src/errors-exceptions.dat
+src/Errors.pl
 src/podify-errors
 src/README
 t/errors.t

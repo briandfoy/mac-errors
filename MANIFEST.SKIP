@@ -4,7 +4,6 @@ blib
 .cvsignore
 .lwpcookies
 .releaserc
-Errors.pl
 MANIFEST.SKIP
 Makefile$
 Makefile.old
