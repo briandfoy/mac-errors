@@ -74,9 +74,8 @@ while( <DATA> ) {
 		}
 	}
 
-print "\n\@EXPORT_OK = (\n";
-while( @values )
-	{
+print "\n\@EXPORT_OK = qw(\n";
+while( @values ) {
 	my @print = splice @values, 0, 5, ();
 	
 	print "@print\n";
