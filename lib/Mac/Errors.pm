@@ -7,7 +7,7 @@ no warnings;
 use base qw(Exporter Tie::Scalar);
 use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 
-$VERSION = 1.16;
+$VERSION = 1.17;
 
 use Exporter;
 
@@ -14191,13 +14191,9 @@ sub dsBadLibrary { 1010 }
 
 =head1 SOURCE AVAILABILITY
 
-This source is part of a SourceForge project which always has the
-latest sources in CVS, as well as all of the previous releases.
+This source is in Github:
 
-	http://sourceforge.net/projects/brian-d-foy/
-	
-If, for some reason, I disappear from the world, one of the other
-members of the project can shepherd this module appropriately.
+	https://github.com/briandfoy/Mac-Errors
 
 =head1 AUTHOR
 
@@ -14205,7 +14201,7 @@ brian d foy, C<< <bdfoy.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2007 brian d foy.  All rights reserved.
+Copyright (c) 2002-2013 brian d foy.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
