@@ -47,7 +47,8 @@ number or symbol.  Each value is a C<Mac::Errors> object which
 has the symbol, number, and description.
 
 The C<$MacError> scalar performs some tied magic to translate
-MacPerl's C<$^E> to the error text.
+MacPerl's C<$^E> to the error text. On other platforms, it is
+always undef.
 
 =head1 METHODS
 
@@ -82,14 +83,13 @@ The subroutine returns the error number.
 
 tie $MacError, __PACKAGE__;
 
-sub TIESCALAR 
-	{
+sub TIESCALAR {
 	my( $class, $scalar ) = @_;
 	return bless \$scalar, $class;
 	}
 
-sub FETCH
-	{
+sub FETCH {
+	return unless $^O eq 'MacOS';
 	my $errno = $^E + 0;
 	return $errno unless exists $MacErrors{ $errno };
 	return $MacErrors{ $errno }->description;

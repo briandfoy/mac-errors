@@ -16,7 +16,16 @@ $! = $err;
 
 my $error = $MacErrors{$err};
 
-cmp_ok( $error->number, '==', $err );
-cmp_ok( $error->number, '==', fnfErr() );
-is( $error->description, $MacError );
+cmp_ok( $error->number, '==', $err, 'number() returns the original error' );
+cmp_ok( $error->number, '==', fnfErr(), 'number() returns the right number' );
+
+SKIP: {
+	skip "You aren't on MacPerl", 1 unless $^O eq 'MacOS';
+	is( $error->description, $MacError, '$MacError returns the same description' );
+	}
+SKIP: {
+	skip "You are on MacPerl", 1 if $^O eq 'MacOS';
+	ok( ! defined $MacError, '$MacError is undef unless on MacPerl' );
+	}
+
 is( $error->symbol, "fnfErr" );
