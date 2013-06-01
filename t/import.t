@@ -1,6 +1,6 @@
 use strict;
 
-use Test::More tests => 6;
+use Test::More 0.95;
 
 BEGIN {
     use_ok( 'Mac::Errors', qw( $MacError %MacErrors fnfErr ) );
@@ -29,3 +29,5 @@ SKIP: {
 	}
 
 is( $error->symbol, "fnfErr" );
+
+done_testing();
