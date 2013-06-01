@@ -7,7 +7,7 @@ no warnings;
 use base qw(Exporter Tie::Scalar);
 use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 
-$VERSION = 1.17;
+$VERSION = '1.17_01';
 
 use Exporter;
 
