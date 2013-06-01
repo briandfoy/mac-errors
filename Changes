@@ -1,5 +1,8 @@
 Revision history for Perl extension Mac::Errors.
 
+1.17_01 - Sat Jun  1 09:04:59 2013
+	* Restrict $MacError to just MacPerl
+
 1.17 - Thu May 30 04:54:10 2013
 	* Update pointer to source in Github
 	* Fix RT #85730 (Missing MYMETA files)
