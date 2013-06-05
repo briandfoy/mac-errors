@@ -1,5 +1,8 @@
 Revision history for Perl extension Mac::Errors.
 
+1.17_02 - Wed Jun  5 08:57:03 2013
+	* Add Github info to Makefile.PL and README
+
 1.17_01 - Sat Jun  1 09:04:59 2013
 	* Restrict $MacError to just MacPerl
 
