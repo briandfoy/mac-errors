@@ -1,4 +1,4 @@
-use ExtUtils::MakeMaker;
+use ExtUtils::MakeMaker 6.46;
 	
 require 5.010;
 
@@ -11,11 +11,20 @@ WriteMakefile(
 	'LICENSE'      => 'perl',
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
 
-	'PREREQ_PM'         => {
-		'Test::More'  => '0.95',
+	'PREREQ_PM'    => {
+		'ExtUtils::MakeMaker' => '6.46',
+		'Test::More'          => '0.95',
 		},
 
-	'EXE_FILES'         => [ 'bin/macerror' ],
+	'EXE_FILES'    => [ 'bin/macerror' ],
+
+    'META_MERGE'   => {
+		'resources' => {
+			'repository' => 'http://github.com/chorny/test-warn/tree',
+			},
+
+		'keywords' => ['mac','errors'],
+		},
 
 	clean               => { FILES => 'Mac-Errors-*' },
 	);
