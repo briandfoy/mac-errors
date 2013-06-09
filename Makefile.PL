@@ -20,7 +20,7 @@ WriteMakefile(
 
     'META_MERGE'   => {
 		'resources' => {
-			'repository' => 'http://github.com/chorny/test-warn/tree',
+			'repository' => 'https://github.com/briandfoy/Mac-Errors',
 			},
 
 		'keywords' => ['mac','errors'],
