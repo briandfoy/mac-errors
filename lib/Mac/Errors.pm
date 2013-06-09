@@ -64,7 +64,7 @@ Returns the error number, (e.g. -23)
 
 =item description
 
-Returns the errror description from MacErrors.h, which may
+Returns the error description from MacErrors.h, which may
 mean something to you, and may not, (e.g. I/O System Errors).
 
 Descriptions of errors are not unique, and some errors do
@@ -449,7 +449,7 @@ sub dupFNErr { -48 }
 
 =item opWrErr
 
- file already open with with write permission
+ file already open with write permission
 
 =cut
 
