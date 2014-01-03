@@ -1,5 +1,8 @@
 Revision history for Perl extension Mac::Errors.
 
+1.18 - Fri Jan  3 13:59:06 2014
+	* Get rid of MYMETA
+
 1.17_02 - Wed Jun  5 08:57:03 2013
 	* Add Github info to Makefile.PL and README
 
