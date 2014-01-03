@@ -7,7 +7,7 @@ no warnings;
 use base qw(Exporter Tie::Scalar);
 use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 
-$VERSION = '1.17_02';
+$VERSION = '1.18';
 
 use Exporter;
 
@@ -14199,7 +14199,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2013 brian d foy.  All rights reserved.
+Copyright (c) 2002-2014 brian d foy.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
