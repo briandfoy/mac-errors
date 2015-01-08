@@ -2,11 +2,14 @@ require 5.010;
 use strict;
 use warnings;
 
-my $github    = 'https://github.com/briandfoy/';
-my $main_file = 'lib/Mac/Errors.pm';
+use File::Spec::Functions qw(catfile);
+
+my $module    = 'Mac::Errors';
+my $github    = 'https://github.com/briandfoy/Mac-Errors';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-	'NAME'          => 'Mac::Errors',
+	'NAME'          => $module,
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'       => 'perl',
@@ -43,7 +46,6 @@ my %WriteMakefile = (
 			homepage => $github,
 			},
 		},
-
 
 	clean               => { FILES => 'Mac-Errors-*' },
 	);
