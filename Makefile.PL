@@ -1,10 +1,12 @@
 require 5.010;
+
+package Mac::Errors;
 use strict;
 use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = 'Mac::Errors';
+my $module    = __PACKAGE__;
 ( my $dist = $module ) =~ s/::/-/g;
 
 my $github    = 'https://github.com/briandfoy/Mac-Errors';
