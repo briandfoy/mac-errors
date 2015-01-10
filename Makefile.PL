@@ -50,7 +50,7 @@ my %WriteMakefile = (
 			},
 		},
 
-	clean               => { FILES => 'Mac-Errors-*' },
+	clean => { FILES => "$dist-*" },
 	);
 
 sub arguments { \%WriteMakefile }
