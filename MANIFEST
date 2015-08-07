@@ -1,6 +1,7 @@
 bin/macerror
 Changes
 examples/README
+INSTALL.SKIP
 lib/Mac/Errors.pm
 LICENSE
 Makefile.PL
