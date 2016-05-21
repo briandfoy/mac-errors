@@ -100,7 +100,7 @@ constants();
 sub constants {
 	seek DATA, 0, 0; # this reads the entire script
 	my $data = do { local $/; <DATA> };
-	while( $data =~ m|=item (\w+)(?:\s+([^\n]+))?\n\s+?=cut\s+sub \1 { (-?\d+) }|g ) {
+	while( $data =~ m|=item (\w+)(?:\s+([^\n]+))?\n\s+?=cut\s+sub \1 \{ (-?\d+) }|g ) {
 		my( $symbol, $desc, $value ) = ( $1, $2, $3 );
 		push @EXPORT_OK, $symbol;
 		
