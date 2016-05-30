@@ -25,18 +25,18 @@ Mac::Errors - constants for Mac error codes
 		{
 		...
 		}
-	
+
 	my $error = $MacErrors{ $symbol };
 	# -- OR --
 	my $error = $MacErrors{ $number };
-	
+
 	my $symbol = $error->symbol;
 	my $number = $error->number;
-	my $desc   = $error->description; 
-	
+	my $desc   = $error->description;
+
 	# in MacPerl, $^E is meaningful, and we tie $MacError to it
 	use Mac::Errors qw( $MacError );
-	
+
 	open FILE, $foo or die $^E;       # error number
 	open FILE, $foo or die $MacError; # gets description from $^E
 
@@ -103,12 +103,12 @@ sub constants {
 	while( $data =~ m|=item (\w+)(?:\s+([^\n]+))?\n\s+?=cut\s+sub \1 { (-?\d+) }|g ) {
 		my( $symbol, $desc, $value ) = ( $1, $2, $3 );
 		push @EXPORT_OK, $symbol;
-		
+
 		$desc  ||= $symbol;
 		my $array = [ $symbol, $value, $desc ];
-		
+
 		bless $array, __PACKAGE__;
-		
+
 		$MacErrors{$symbol} = $MacErrors{$value} = $array;
 		}
 	}
