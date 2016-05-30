@@ -4,12 +4,12 @@ use strict;
 use warnings;
 no warnings;
 
-use base qw(Exporter Tie::Scalar);
+use base qw(Tie::Scalar);
 use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 
 $VERSION = '1.18';
 
-use Exporter;
+use Exporter qw(import);
 
 =encoding utf8
 
