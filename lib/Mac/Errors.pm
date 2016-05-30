@@ -20,9 +20,8 @@ Mac::Errors - constants for Mac error codes
 =head1 SYNOPSIS
 
 	use Mac::Errors qw(openErr);
-	
-	if( $value == openErr )
-		{
+
+	if( $value == openErr ) {
 		...
 		}
 
