@@ -7,7 +7,7 @@ no warnings;
 use base qw(Tie::Scalar);
 use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
 
-$VERSION = '1.18';
+$VERSION = '1.18_01';
 
 use Exporter qw(import);
 
