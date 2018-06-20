@@ -23,7 +23,7 @@ name instead of the file location:
 	% perldoc Mac::Errors
 
 You can read the documentation and inspect the meta data at
-L<MetaCPAN|http://www.metacpan.org/module/Mac::Errors>.
+L<MetaCPAN|https://www.metacpan.org/module/Mac::Errors>.
 
 The standard module documentation has example uses in the SYNOPSIS
 section, but you can also look in the I<examples/> directory (if it's
