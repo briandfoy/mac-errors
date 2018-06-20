@@ -5,9 +5,9 @@ use warnings;
 no warnings;
 
 use base qw(Tie::Scalar);
-use vars qw(@EXPORT_OK %MacErrors $MacError $VERSION);
+use vars qw(%MacErrors $MacError);
 
-$VERSION = '1.192';
+our $VERSION = '1.192';
 
 use Exporter qw(import);
 
@@ -78,7 +78,7 @@ The subroutine returns the error number.
 
 =cut
 
-@EXPORT_OK = qw(%MacErrors $MacError);
+our @EXPORT_OK = qw(%MacErrors $MacError);
 
 tie $MacError, __PACKAGE__;
 
